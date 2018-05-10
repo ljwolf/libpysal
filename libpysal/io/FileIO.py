@@ -35,7 +35,7 @@ class FileIO_MetaCls(type):
         return cls
 
 
-class FileIO(with_metaclass(object, FileIO_MetaCls)):  # should be a type?
+class FileIO(with_metaclass(FileIO_MetaCls, object)):  # should be a type?
     """
     How this works:
     FileIO.open(\*args) == FileIO(\*args)
