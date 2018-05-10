@@ -16,7 +16,6 @@ __author__ = "Charles R Schmidt <schmidtc@gmail.com>"
 
 from struct import calcsize, unpack, pack
 
-from itertools import izip, islice
 import array
 import sys
 
@@ -24,8 +23,11 @@ PY3 = int(sys.version[0]) > 2
 
 if PY3:
     import io
+    izip = zip
+    from itertools import islice
 else:
     from cStringIO import StringIO
+    from itertools import izip, islice
 
 if sys.byteorder == 'little':
     SYS_BYTE_ORDER = '<'
